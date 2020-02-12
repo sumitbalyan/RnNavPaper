@@ -11,13 +11,16 @@ import {
   Text,
   TouchableRipple,
   Switch,
+  Button,
 } from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {PreferencesContext} from '../PreferencesContext';
 import Photo from '../images/photo.jpg';
+import {AuthContext} from '../AuthContext';
 
 export default function DrawerContent(props) {
   const paperTheme = useTheme();
+  const {signOut} = React.useContext(AuthContext);
   const {theme, toggleTheme} = React.useContext(PreferencesContext);
   return (
     <DrawerContentScrollView {...props}>
@@ -57,7 +60,7 @@ export default function DrawerContent(props) {
               />
             )}
             label="Profile"
-            onPress={() => {}}
+            onPress={() => props.navigation.navigate('Profile')}
           />
           <DrawerItem
             icon={({color, size}) => (
@@ -86,7 +89,7 @@ export default function DrawerContent(props) {
             <View style={styles.preference}>
               <Text>Dark Theme</Text>
               <View pointerEvents="none">
-                <Switch value={theme.dark} />
+                <Switch color={paperTheme.colors.primary} value={theme.dark} />
               </View>
             </View>
           </TouchableRipple>
@@ -94,10 +97,20 @@ export default function DrawerContent(props) {
             <View style={styles.preference}>
               <Text>RTL</Text>
               <View pointerEvents="none">
-                <Switch value={false} />
+                <Switch color={paperTheme.colors.primary} value={false} />
               </View>
             </View>
           </TouchableRipple>
+        </Drawer.Section>
+        <Drawer.Section>
+          <View style={styles.logout}>
+            <Button
+              color="#fff"
+              style={styles.logoutBackground}
+              onPress={signOut}>
+              Log out
+            </Button>
+          </View>
         </Drawer.Section>
       </View>
     </DrawerContentScrollView>
@@ -141,5 +154,14 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingVertical: 12,
     paddingHorizontal: 16,
+  },
+  logout: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 5,
+    paddingHorizontal: 5,
+  },
+  logoutBackground: {
+    backgroundColor: 'red',
   },
 });

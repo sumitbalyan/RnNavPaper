@@ -1,8 +1,8 @@
 import React from 'react';
-import DrawerNavigation from './navigation/DrawerNavigation';
+import AuthNavigation from './navigation/AuthNavigation';
 
 const Main = () => {
-  return <DrawerNavigation />;
+  return <AuthNavigation />;
 };
 
 export default Main;

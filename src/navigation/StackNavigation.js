@@ -8,6 +8,7 @@ import Details from '../components/Details';
 import {useTheme} from 'react-native-paper';
 import TabsNavigation from './TabsNavigation';
 import Photo from '../images/photo.jpg';
+import Profile from '../components/Profile';
 
 const Header = ({scene, previous, navigation}) => {
   const theme = useTheme();
@@ -71,6 +72,11 @@ const StackNavigation = () => {
         name="Details"
         component={Details}
         options={{headerTitle: 'Tweet'}}
+      />
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={{headerTitle: 'Profile'}}
       />
     </Stack.Navigator>
   );

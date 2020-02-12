@@ -17,6 +17,7 @@
     "@react-navigation/stack": "^5.0.0",
     "react": "16.9.0",
     "react-native": "0.61.5",
+    "react-native-fingerprint-scanner": "^4.0.0",
     "react-native-gesture-handler": "^1.5.6",
     "react-native-paper": "^3.6.0",
     "react-native-reanimated": "^1.7.0",
